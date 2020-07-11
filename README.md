@@ -1,6 +1,8 @@
 # javascript-Syntax-Highlighter-for-Minecraft-functions
 A Javascript function to highlight Minecraft functions code
 
+## Installation
+
 to use it on your webpage you have to declare the css variables to color the code.
 You can use this css code:
 
