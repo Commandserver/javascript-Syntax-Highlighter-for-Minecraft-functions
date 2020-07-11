@@ -4,7 +4,8 @@ A Javascript function to highlight Minecraft functions code
 to use it on your webpage you have to declare the css variables to color the code.
 You can use this css code:
 
-```.selector {
+```css
+.selector {
   color: #027102;
 }
 .selectorProperties {
