@@ -52,7 +52,7 @@ function highlight(row) {
             }
           }
         }
-        // copy selektor properties
+        // copy selector properties
         const section = row.slice(startpos + 3, endpos);
         let newInset = "";
 
