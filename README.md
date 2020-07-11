@@ -1,4 +1,4 @@
-# javascript Syntax Highlighter for Minecraft functions
+# Javascript syntax highlighter for Minecraft functions
 A Javascript function to highlight Minecraft functions code
 
 ## How to use it
