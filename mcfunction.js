@@ -3,7 +3,7 @@
  * @param row = the minecraft command to be highlighted
  * @returns {string} with all <span> elements to highlight the command for your webside
  */
-function line(row) {
+function highlight(row) {
   let replacement = row;
 
   const searchTermAllKeywords = ["advancement ", "bossbar ", "clear ", "clone ", "data ", "datapack ", "debug ", "defaultgamemode ", "difficulty ", "effect ", "enchant ", "execute ", "experience ", "fill ", "forceload ", "function ", "gamemode ", "gamerule ", "give ", "kill ", "list ", "locate ", "locatebiome ", "loot ", "particle ", "playsound ", "publish ", "recipe ", "reload ", "replaceitem ", "say ", "schedule ", "scoreboard ", "seed ", "setblock ", "setworldspawn ", "spawnpoint ", "spectate ", "spreadplayers ", "stopsound ", "summon ", "tag ", "team ", "teleport ", "tell ", "tellraw ", "time ", "title ", "tp ", "weather ", "worldborder ", "xp "];
@@ -27,12 +27,12 @@ function line(row) {
 
   if (replacement == "\n" || replacement == "") {
     replacement = "<span style=\"visibility: hidden;\">empty</span>";
-  } else if (row.startsWith("#")) { // kommentar grau
+  } else if (row.startsWith("#")) { // comment gray
     replacement = "<span class=\"gray\">" + replacement + "</span>";
   } else {
     // highlight selectors
     for (let j = 0; j < searchTermSelectors.length; j++) {
-      replacement = replacement.replace(new RegExp(searchTermSelectors[j], "gi"), "<span class=\"green\">" + searchTermSelectors[j] + "</span>")
+      replacement = replacement.replace(new RegExp(searchTermSelectors[j], "gi"), "<span class=\"selector\">" + searchTermSelectors[j] + "</span>")
 
       let startpos = row.indexOf(searchTermSelectors[j] + "[");
       while (startpos > -1) {
@@ -59,7 +59,7 @@ function line(row) {
         for (let y = 0; y < section.length; y++) {
           for (let z = 0; z < selectorProperties.length; z++) { // search for selectorProperties at this index
             if (section.indexOf(selectorProperties[z], y) === y) {
-              newInset += "<span class=\"blue\">" + selectorProperties[z] + "</span>";
+              newInset += "<span class=\"selectorProperties\">" + selectorProperties[z] + "</span>";
               y += selectorProperties[z].length;
               isScores = false;
               if (selectorProperties[z] === "scores=") {
@@ -67,10 +67,10 @@ function line(row) {
               }
             }
           }
-          if (section.indexOf("!", y) === y) { //search !
-            newInset += "<span class=\"red\">!</span>";
+          if (section.indexOf("!", y) === y) { // search !
+            newInset += "<span class=\"not\">!</span>";
           } else if (section.indexOf("minecraft:", y) === y) { // search minecraft:
-            newInset += "<span class=\"dark_red\">minecraft:</span>";
+            newInset += "<span class=\"minecraft\">minecraft:</span>";
             y += 9;
           } else if (section.indexOf("{", y) === y) { // skip brackets
             let bs = 0;
@@ -101,9 +101,9 @@ function line(row) {
                           }
                           arrayEnd = Math.min(...arrayEnd);
 
-                          newInset += "<span class=\"orange\">" + section.slice(y, w1 + 1) + "</span>";
+                          newInset += "<span class=\"score\">" + section.slice(y, w1 + 1) + "</span>";
                           y = arrayEnd;
-                          newInset += "<span class=\"yellow\">" + section.slice(w1 + 1, arrayEnd) + "</span>";
+                          newInset += "<span class=\"number\">" + section.slice(w1 + 1, arrayEnd) + "</span>";
 
                         } else { // end loop if no more = characters find
                           w1 = u + 1;
@@ -112,7 +112,7 @@ function line(row) {
                       }
                     }
                   } else {
-                    newInset += "<span class=\"orange\">" + section.slice(y, u + 1) + "</span>";
+                    newInset += "<span class=\"score\">" + section.slice(y, u + 1) + "</span>";
                   }
                   y = u;
                   break;
@@ -133,10 +133,10 @@ function line(row) {
                 }
               }
               if (fgl === fg.length) {
-                newInset += "<span class=\"yellow\">" + section.slice(y, fs1 + 1) + "</span>"; // zahlen gelb
+                newInset += "<span class=\"number\">" + section.slice(y, fs1 + 1) + "</span>";
                 y += section.slice(y, fs1).length;
               } else {
-                newInset += "<span class=\"green\">" + section.slice(y, fs1 + 1) + "</span>"; // sonstige variablen grün
+                newInset += "<span class=\"selector\">" + section.slice(y, fs1 + 1) + "</span>";
                 y += section.slice(y, fs1).length;
               }
             } else {
@@ -151,10 +151,10 @@ function line(row) {
                 }
               }
               if (fgl === fg.length) {
-                newInset += "<span class=\"yellow\">" + section.slice(y, section.length) + "</span>"; // zahlen gelb
+                newInset += "<span class=\"number\">" + section.slice(y, section.length) + "</span>";
                 y += section.slice(y, section.length).length;
               } else {
-                newInset += "<span class=\"green\">" + section.slice(y, section.length) + "</span>"; // sonstige variablen grün
+                newInset += "<span class=\"selector\">" + section.slice(y, section.length) + "</span>";
                 y += section.slice(y, section.length).length;
               }
             }
@@ -162,7 +162,7 @@ function line(row) {
         }
 
         for (let h = 0; h < selectorX.length; h++) {
-          newInset = newInset.replace(new RegExp(selectorX[h], "gi"), "<span class=\"violet\">" + selectorX[h] + "</span>");
+          newInset = newInset.replace(new RegExp(selectorX[h], "gi"), "<span class=\"bracket\">" + selectorX[h] + "</span>");
         }
         startpos = row.indexOf(searchTermSelectors[j] + "[", endpos);
         replacement = replacement.replace(section, newInset);
@@ -173,25 +173,25 @@ function line(row) {
     if (searchFunction >= 0) {
       searchFunction = row.indexOf(" ", searchFunction);
       searchFunction = row.slice(searchFunction, row.length);
-      replacement = replacement.replace(searchFunction, " <span class=\"violet\">" + searchFunction + "</span>");
+      replacement = replacement.replace(searchFunction, " <span class=\"function\">" + searchFunction + "</span>");
     }
     for (let j = 0; j < searchTermKeywords.length; j++) {
       if (replacement.indexOf(searchTermKeywords[j]) === 0) {
-        replacement = replacement.replace(searchTermKeywords[j], '<span class="red">' + searchTermKeywords[j] + '</span>');
+        replacement = replacement.replace(searchTermKeywords[j], '<span class="not">' + searchTermKeywords[j] + '</span>');
       }
       if (searchTermKeywords[j] === "execute ") {
-        replacement = replacement.replace(new RegExp(" run " + searchTermKeywords[j], "gi"), " <span title=\"Useless\" style=\"color:white;background-color:red;\"><u>run execute</u></span> ");
+        replacement = replacement.replace(new RegExp(" run " + searchTermKeywords[j], "gi"), " <span title=\"Useless\" class=\"error\">run execute</span> ");
       } else {
-        replacement = replacement.replace(new RegExp(" run " + searchTermKeywords[j], "gi"), " run <span class=\"red\">" + searchTermKeywords[j] + "</span>");
+        replacement = replacement.replace(new RegExp(" run " + searchTermKeywords[j], "gi"), " run <span class=\"not\">" + searchTermKeywords[j] + "</span>");
       }
     }
 
     for (let j = 0; j < searchTermCurlyBrackets.length; j++) {
-      replacement = replacement.replace(new RegExp(searchTermCurlyBrackets[j], "gi"), "<span class=\"violet\">" + searchTermCurlyBrackets[j] + "</span>");
+      replacement = replacement.replace(new RegExp(searchTermCurlyBrackets[j], "gi"), "<span class=\"bracket\">" + searchTermCurlyBrackets[j] + "</span>");
     }
 
-    replacement = replacement.replace(new RegExp("\\[", "gi"), "<span class=\"violet\">[</span>");
-    replacement = replacement.replace(new RegExp("\\]", "gi"), "<span class=\"violet\">]</span>");
+    replacement = replacement.replace(new RegExp("\\[", "gi"), "<span class=\"bracket\">[</span>");
+    replacement = replacement.replace(new RegExp("\\]", "gi"), "<span class=\"bracket\">]</span>");
   }
   return replacement;
 }
