@@ -8,7 +8,7 @@ Just execute the function and pass the minecraft command into it.
 ## Example
 
 ```javascript
-document.getElementById('myElement').innerHTML = hightlight("particle minecraft:barrier ~ ~42 ~ 0.4 0.5 0.4 1 6 force @a[gamemode=spectator]");
+document.getElementById('myElement').innerHTML = highlight("particle minecraft:barrier ~ ~42 ~ 0.4 0.5 0.4 1 6 force @a[gamemode=spectator]");
 ```
 
 ## Installation
