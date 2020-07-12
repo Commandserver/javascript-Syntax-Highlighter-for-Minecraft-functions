@@ -184,7 +184,7 @@ function mclangHighlight(row) {
         replacement = replacement.replace(searchTermKeywords[j], '<span class="keyword">' + searchTermKeywords[j] + '</span>');
       }
       if (searchTermKeywords[j] === "execute ") {
-        replacement = replacement.replace(new RegExp(" run " + searchTermKeywords[j], "gi"), " <span title=\"Useless\" class=\"error\">run execute</span> ");
+        replacement = replacement.replace(new RegExp(" run " + searchTermKeywords[j], "gi"), " <span title=\"Useless\" class=\"light-error\">run execute</span> ");
       } else {
         replacement = replacement.replace(new RegExp(" run " + searchTermKeywords[j], "gi"), " run <span class=\"keyword\">" + searchTermKeywords[j] + "</span>");
       }
