@@ -1,12 +1,14 @@
 # Javascript syntax highlighter for Minecraft functions
-A Javascript function to highlight Minecraft functions code
+A Javascript function to highlight Minecraft functions code.
+
+This Javascript highlighter can be used to highlight Minecraft code on your websides.
 * for Minecraft 1.13 to 1.16
 
 ## How to use it
 
-Just execute the function and pass the minecraft command into it.
+Just execute the `mclangHighlight` function and pass the minecraft command into it.
 
-### Example:
+#### Example:
 
 ```javascript
 document.getElementById('myElement').innerHTML = mclangHighlight("particle minecraft:barrier ~ ~42 ~ 0.4 0.5 0.4 1 6 force @a[gamemode=spectator]");
