@@ -9,7 +9,7 @@ Just execute the function and pass the minecraft command into it.
 ## Example
 
 ```javascript
-document.getElementById('myElement').innerHTML = highlight("particle minecraft:barrier ~ ~42 ~ 0.4 0.5 0.4 1 6 force @a[gamemode=spectator]");
+document.getElementById('myElement').innerHTML = mclangHighlight("particle minecraft:barrier ~ ~42 ~ 0.4 0.5 0.4 1 6 force @a[gamemode=spectator]");
 ```
 
 ## Installation
@@ -19,39 +19,39 @@ You can use this css code:
 
 ```css
 .selector {
-  color: #027102;
+    color: #05cc94;
 }
 .selectorProperties {
-  color: #00ccff;
+    color: #4196b7;
 }
 .not {
-  color: #ff5151;
+    color: #ff5151;
 }
 .minecraft {
-  color: #3c47e6;
-}
-.score {
-  color: #c86904;
+    color: #3c47e6;
 }
 .number {
-  color: #f43408;
-  font-weight: bold;
+    color: #db480f;
+    font-weight: bold;
 }
 .bracket {
-  color: #53a600;
-  font-weight: bold;
+    color: #05cc94;
+    font-weight: bold;
 }
 .error {
-  background-color: #d0320d;
-  border-radius: 2px;
+    background-color: #d0320d;
+    border-radius: 2px;
 }
 .function {
-  color: #53a600;
+    color: #53a600;
 }
 .comment {
-  color: #646363;
+    color: #646363;
 }
 .keyword {
-  color: #e951ff;
+    color: #e951ff;
+}
+.var {
+    color: #caa536;
 }
 ```
