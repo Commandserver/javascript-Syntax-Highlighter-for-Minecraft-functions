@@ -1,6 +1,6 @@
 # Javascript syntax highlighter for Minecraft functions
 A Javascript function to highlight Minecraft functions code
-..*for Minecraft 1.13 to 1.16
+⋅⋅*for Minecraft 1.13 to 1.16
 
 ## How to use it
 
