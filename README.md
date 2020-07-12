@@ -6,7 +6,7 @@ A Javascript function to highlight Minecraft functions code
 
 Just execute the function and pass the minecraft command into it.
 
-## Example
+### Example:
 
 ```javascript
 document.getElementById('myElement').innerHTML = mclangHighlight("particle minecraft:barrier ~ ~42 ~ 0.4 0.5 0.4 1 6 force @a[gamemode=spectator]");
@@ -18,40 +18,46 @@ to use it on your webpage you have to declare the css variables to color the cod
 You can use this css code:
 
 ```css
-.selector {
+span.selector {
     color: #05cc94;
 }
-.selectorProperties {
+span.selectorProperties {
     color: #4196b7;
 }
-.not {
+span.not {
     color: #ff5151;
 }
-.minecraft {
+span.minecraft {
     color: #3c47e6;
 }
-.number {
+span.number {
     color: #db480f;
     font-weight: bold;
 }
-.bracket {
+span.bracket {
     color: #05cc94;
     font-weight: bold;
 }
-.error {
+span.error {
     background-color: #d0320d;
     border-radius: 2px;
 }
-.function {
+span.light-error {
+    background-color: rgba(255, 0, 0, 0.1);
+    border-radius: 2px;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+}
+span.function {
     color: #53a600;
 }
-.comment {
+span.comment {
     color: #646363;
 }
-.keyword {
+span.keyword {
     color: #e951ff;
 }
-.var {
+span.var {
     color: #caa536;
 }
 ```
