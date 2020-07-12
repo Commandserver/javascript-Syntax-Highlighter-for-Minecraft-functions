@@ -43,6 +43,7 @@ You can use this css code:
 }
 .error {
   background-color: #d0320d;
+  border-radius: 2px;
 }
 .function {
   color: #53a600;
