@@ -46,4 +46,7 @@ You can use this css code:
 .function {
   color: #53a600;
 }
+.comment {
+  color: #646363;
+}
 ```
