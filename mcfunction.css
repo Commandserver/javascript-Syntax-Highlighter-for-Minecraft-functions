@@ -1,0 +1,36 @@
+.selector {
+    color: #05cc94;
+}
+.selectorProperties {
+    color: #4196b7;
+}
+.not {
+    color: #ff5151;
+}
+.minecraft {
+    color: #3c47e6;
+}
+.number {
+    color: #db480f;
+    font-weight: bold;
+}
+.bracket {
+    color: #05cc94;
+    font-weight: bold;
+}
+.error {
+    background-color: #d0320d;
+    border-radius: 2px;
+}
+.function {
+    color: #53a600;
+}
+.comment {
+    color: #646363;
+}
+.keyword {
+    color: #e951ff;
+}
+.var {
+    color: #caa536;
+}
