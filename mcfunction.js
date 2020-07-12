@@ -177,12 +177,12 @@ function highlight(row) {
     }
     for (let j = 0; j < searchTermKeywords.length; j++) {
       if (replacement.indexOf(searchTermKeywords[j]) === 0) {
-        replacement = replacement.replace(searchTermKeywords[j], '<span class="not">' + searchTermKeywords[j] + '</span>');
+        replacement = replacement.replace(searchTermKeywords[j], '<span class="keyword">' + searchTermKeywords[j] + '</span>');
       }
       if (searchTermKeywords[j] === "execute ") {
         replacement = replacement.replace(new RegExp(" run " + searchTermKeywords[j], "gi"), " <span title=\"Useless\" class=\"error\">run execute</span> ");
       } else {
-        replacement = replacement.replace(new RegExp(" run " + searchTermKeywords[j], "gi"), " run <span class=\"not\">" + searchTermKeywords[j] + "</span>");
+        replacement = replacement.replace(new RegExp(" run " + searchTermKeywords[j], "gi"), " run <span class=\"keyword\">" + searchTermKeywords[j] + "</span>");
       }
     }
 
