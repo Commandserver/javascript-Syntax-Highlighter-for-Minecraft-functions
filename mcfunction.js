@@ -28,7 +28,7 @@ function highlight(row) {
   if (replacement == "\n" || replacement == "") {
     replacement = "<span style=\"visibility: hidden;\">empty</span>";
   } else if (row.startsWith("#")) { // comment gray
-    replacement = "<span class=\"gray\">" + replacement + "</span>";
+    replacement = "<span class=\"comment\">" + replacement + "</span>";
   } else {
     // highlight selectors
     for (let j = 0; j < searchTermSelectors.length; j++) {
