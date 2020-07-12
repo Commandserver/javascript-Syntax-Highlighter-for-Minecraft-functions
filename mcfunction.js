@@ -3,7 +3,8 @@
  * @param row = the minecraft command to be highlighted
  * @returns {string} with all <span> elements to highlight the command for your webside
  */
-function highlight(row) {
+
+function mclangHighlight(row) {
   let replacement = row;
 
   const searchTermAllKeywords = ["advancement ", "bossbar ", "clear ", "clone ", "data ", "datapack ", "debug ", "defaultgamemode ", "difficulty ", "effect ", "enchant ", "execute ", "experience ", "fill ", "forceload ", "function ", "gamemode ", "gamerule ", "give ", "kill ", "list ", "locate ", "locatebiome ", "loot ", "particle ", "playsound ", "publish ", "recipe ", "reload ", "replaceitem ", "say ", "schedule ", "scoreboard ", "seed ", "setblock ", "setworldspawn ", "spawnpoint ", "spectate ", "spreadplayers ", "stopsound ", "summon ", "tag ", "team ", "teleport ", "tell ", "tellraw ", "time ", "title ", "tp ", "weather ", "worldborder ", "xp "];
@@ -69,6 +70,9 @@ function highlight(row) {
           }
           if (section.indexOf("!", y) === y) { // search !
             newInset += "<span class=\"not\">!</span>";
+          } else if (section.indexOf("#minecraft:", y) === y) { // search #minecraft:
+            newInset += "<span class=\"minecraft\">#minecraft:</span>";
+            y += 10;
           } else if (section.indexOf("minecraft:", y) === y) { // search minecraft:
             newInset += "<span class=\"minecraft\">minecraft:</span>";
             y += 9;
@@ -101,7 +105,7 @@ function highlight(row) {
                           }
                           arrayEnd = Math.min(...arrayEnd);
 
-                          newInset += "<span class=\"score\">" + section.slice(y, w1 + 1) + "</span>";
+                          newInset += "<span class=\"var\">" + section.slice(y, w1 + 1) + "</span>";
                           y = arrayEnd;
                           newInset += "<span class=\"number\">" + section.slice(w1 + 1, arrayEnd) + "</span>";
 
@@ -112,7 +116,7 @@ function highlight(row) {
                       }
                     }
                   } else {
-                    newInset += "<span class=\"score\">" + section.slice(y, u + 1) + "</span>";
+                    newInset += "<span class=\"var\">" + section.slice(y, u + 1) + "</span>";
                   }
                   y = u;
                   break;
@@ -136,7 +140,7 @@ function highlight(row) {
                 newInset += "<span class=\"number\">" + section.slice(y, fs1 + 1) + "</span>";
                 y += section.slice(y, fs1).length;
               } else {
-                newInset += "<span class=\"selector\">" + section.slice(y, fs1 + 1) + "</span>";
+                newInset += "<span class=\"var\">" + section.slice(y, fs1 + 1) + "</span>";
                 y += section.slice(y, fs1).length;
               }
             } else {
@@ -154,7 +158,7 @@ function highlight(row) {
                 newInset += "<span class=\"number\">" + section.slice(y, section.length) + "</span>";
                 y += section.slice(y, section.length).length;
               } else {
-                newInset += "<span class=\"selector\">" + section.slice(y, section.length) + "</span>";
+                newInset += "<span class=\"var\">" + section.slice(y, section.length) + "</span>";
                 y += section.slice(y, section.length).length;
               }
             }
