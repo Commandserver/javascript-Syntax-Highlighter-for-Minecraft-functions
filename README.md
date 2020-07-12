@@ -49,4 +49,7 @@ You can use this css code:
 .comment {
   color: #646363;
 }
+.keyword {
+  color: #e951ff;
+}
 ```
