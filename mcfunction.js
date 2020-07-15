@@ -7,7 +7,7 @@
 function mclangHighlight(row) {
   let replacement = row;
 
-  const searchTermAllKeywords = ["advancement ", "bossbar ", "clear ", "clone ", "data ", "datapack ", "debug ", "defaultgamemode ", "difficulty ", "effect ", "enchant ", "execute ", "experience ", "fill ", "forceload ", "function ", "gamemode ", "gamerule ", "give ", "kill ", "list ", "locate ", "locatebiome ", "loot ", "particle ", "playsound ", "publish ", "recipe ", "reload ", "replaceitem ", "say ", "schedule ", "scoreboard ", "seed ", "setblock ", "setworldspawn ", "spawnpoint ", "spectate ", "spreadplayers ", "stopsound ", "summon ", "tag ", "team ", "teleport ", "tell ", "tellraw ", "time ", "title ", "tp ", "weather ", "worldborder ", "xp "];
+  const searchTermAllKeywords = ["advancement ", "attribute", "bossbar ", "clear ", "clone ", "data ", "datapack ", "debug ", "defaultgamemode ", "difficulty ", "effect ", "enchant ", "execute ", "experience ", "fill ", "forceload ", "function ", "gamemode ", "gamerule ", "give ", "kill ", "list ", "locate ", "locatebiome ", "loot ", "particle ", "playsound ", "publish ", "recipe ", "reload ", "replaceitem ", "say ", "schedule ", "scoreboard ", "seed ", "setblock ", "setworldspawn ", "spawnpoint ", "spectate ", "spreadplayers ", "stopsound ", "summon ", "tag ", "team ", "teleport ", "tell ", "tellraw ", "time ", "title ", "tp ", "weather ", "worldborder ", "xp "];
   let searchTermKeywords = [];
   const searchTermSelectors = ["@p", "@s", "@r", "@a", "@e"];
   const selectorProperties = ["scores=", "nbt=", "type=", "tag=", "name=", "advancements=", "distance=", "dx=", "dy=", "dz=", "gamemode=", "level=", "limit=", "predicate=", "sort=", "team=", "x=", "y=", "z=", "x_rotation=", "y_rotation="];
