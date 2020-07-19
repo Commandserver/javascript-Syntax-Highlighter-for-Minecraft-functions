@@ -45,7 +45,7 @@ span.error {
     border-radius: 2px;
 }
 span.light-error {
-    background-color: rgba(255, 0, 0, 0.1);
+    background-color: #52503a;
     border-radius: 2px;
     text-decoration: underline;
     text-decoration-style: dotted;
