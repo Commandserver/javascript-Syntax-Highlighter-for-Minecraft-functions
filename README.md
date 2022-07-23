@@ -4,6 +4,10 @@ A Javascript function to highlight Minecraft functions code.
 This Javascript highlighter can be used to highlight Minecraft code on your websides.
 * for Minecraft 1.13 to 1.16
 
+## Preview:
+
+![image](https://user-images.githubusercontent.com/44061123/180615083-f2232a4d-25b8-4965-89c8-80446eb299e9.png)
+
 ## How to use it
 
 Just execute the `mclangHighlight` function and pass the minecraft command into it.
