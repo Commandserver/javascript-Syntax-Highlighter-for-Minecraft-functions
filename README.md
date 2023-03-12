@@ -2,7 +2,7 @@
 A Javascript function to highlight Minecraft functions code.
 
 This Javascript highlighter can be used to highlight Minecraft code on your websides.
-* for Minecraft 1.13 to 1.16
+* tested on Minecraft version 1.13 to 1.16
 
 ## Preview:
 
